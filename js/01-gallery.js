@@ -29,7 +29,7 @@ function createGalleryCardsMarkup(galleryItems) {
 /* 2. Реализация делегирования на div.gallery и получение url 
 большого изображения.
  */
-galleryItems.addEventListener('click', onImgContainerClick);
+// galleryItems.addEventListener('click', onImgContainerClick);
 
 function onImgContainerClick(event) {
     event.preventDefault();
