@@ -26,10 +26,11 @@ function createGalleryCardsMarkup(galleryItems) {
         .join('');
 }
  
+
 /* 2. Реализация делегирования на div.gallery и получение url 
 большого изображения.
  */
-// galleryItems.addEventListener('click', onImgContainerClick);
+
 
 function onImgContainerClick(event) {
     event.preventDefault();
@@ -37,15 +38,33 @@ function onImgContainerClick(event) {
     const isGallerySwatchEl = event.target.classList.contains('gallery__image');
     
     if (!isGallerySwatchEl) {
-        return;
+       return;
+        
     }
-    
+    /* 4. Открытие модального окна по клику на элементе галереи. 
+     */
     const swatchUrlEl = event.target.dataset.source;
-    instance = basicLightbox.create(`<img class="modal__image" src="${swatchUrlEl}"/>`);
+    /* 5. Замена значения атрибута src элемента <img> в модальном окне перед открытием.
+     */
+     
+    const instance = basicLightbox.create(`<img class="modal__image" src="${swatchUrlEl}"/>`);
     instance.show();
+
+    window.addEventListener('keydown', onEscKeyPress); //Включить слушателя по ESC
 
 }
 
+/* 6. Закрытие модального она по "ESC"
+ */
+function onEscKeyPress(event) {
+    const ESC_KEY_CODE = 'Escape';
+     
+    if (event.code === ESC_KEY_CODE) {
+       
+        instance.close();
+        window.removeEventListener('keydown', onEscKeyPress); //Отключить слушателя по ESC
+    }
+}
 
 console.log(galleryItems);
 
