@@ -12,9 +12,9 @@ function createGalleryCardsMarkup(galleryItems) {
     return galleryItems.map(({ preview, original, description }) => {
         return `
         <div class="gallery__item">
-  <a class="gallery__link" href="large-image.jpg">
-    <img
-      class="gallery__image"
+  <a class="gallery__link" 
+  href="large-image.jpg">
+    <img class="gallery__image"
       src="${preview}"
       data-source="${original}"
       alt="${description}"
@@ -52,19 +52,21 @@ function onImgContainerClick(event) {
 
     window.addEventListener('keydown', onEscKeyPress); //Включить слушателя по ESC
 
-}
-
-/* 6. Закрытие модального она по "ESC"
+    /* 6. Закрытие модального она по "ESC"
  */
 function onEscKeyPress(event) {
     const ESC_KEY_CODE = 'Escape';
      
     if (event.code === ESC_KEY_CODE) {
-       
-        instance.close();
+       instance.close();
+      
         window.removeEventListener('keydown', onEscKeyPress); //Отключить слушателя по ESC
     }
 }
+
+}
+
+
 
 console.log(galleryItems);
 
