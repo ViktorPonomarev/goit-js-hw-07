@@ -36,10 +36,7 @@ var lightbox = new SimpleLightbox('.gallery a', {
     // close: true,
     // caption: true,
     
-   
-    
 });
-
 
 console.log(galleryItems);
 
